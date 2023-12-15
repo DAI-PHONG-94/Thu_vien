@@ -1,0 +1,17 @@
+﻿@model WebLibary.Models.Entities.Author
+
+<h2>Tạo mới Tác giả</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="AuthorName"></label>
+        <input asp-for="AuthorName" class="form-control" />
+        <span asp-validation-for="AuthorName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Tạo mới" class="btn btn-primary" />
+    </div>
+</form>
+
+<a asp-action="Index">Quay lại danh sách</a>

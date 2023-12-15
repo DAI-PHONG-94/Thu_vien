@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebLibary.Models.Entities.Borrowing>
+
+<h2>Danh sách Mượn sách</h2>
+
+<p>
+    <a asp-action="Create">Tạo mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sách</th>
+            <th>Người dùng</th>
+            <th>Ngày mượn</th>
+            <th>Ngày trả</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var borrowing in Model)
+        {
+            <tr>
+                <td>@borrowing.BorrowingId</td>
+                <td>@borrowing.Book.Name</td>
+                <td>@borrowing.User.UserName</td>
+                <td>@borrowing.BorrowDate.ToString("yyyy-MM-dd")</td>
+                <td>@borrowing.ReturnDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@borrowing.BorrowingId">Chỉnh sửa</a> |
+                    <a asp-action="Details" asp-route-id="@borrowing.BorrowingId">Chi tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@borrowing.BorrowingId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

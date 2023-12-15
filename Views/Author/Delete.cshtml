@@ -1,0 +1,13 @@
+﻿@model WebLibary.Models.Entities.Author
+
+<h2>Xác nhận xóa Tác giả</h2>
+
+<div>
+    <h4>Bạn có chắc chắn muốn xóa tác giả này không?</h4>
+    <h3>@Model.AuthorName</h3>
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="AuthorId" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Hủy</a>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+﻿@model WebLibary.Models.Entities.Author
+
+
+<h2>Danh sách Tác giả</h2>
+
+<p>
+    <a asp-action="Create">Tạo mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên Tác giả</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.AuthorId</td>
+                <td>@author.AuthorName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@author.AuthorId">Chỉnh sửa</a> |
+                    <a asp-action="Details" asp-route-id="@author.AuthorId">Chi tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@author.AuthorId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+﻿@model WebLibary.Models.Entities.Category
+
+<h2>Tạo mới Thể loại</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="CategoryName"></label>
+        <input asp-for="CategoryName" class="form-control" />
+        <span asp-validation-for="CategoryName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Tạo mới" class="btn btn-primary" />
+    </div>
+</form>
+
+<a asp-action="Index">Quay lại danh sách</a>

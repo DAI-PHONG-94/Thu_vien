@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebLibary.Models.Entities.Category>
+
+<h2>Danh sách Thể loại</h2>
+
+<p>
+    <a asp-action="Create">Tạo mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên Thể loại</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@category.CategoryId">Chỉnh sửa</a> |
+                    <a asp-action="Details" asp-route-id="@category.CategoryId">Chi tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@category.CategoryId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

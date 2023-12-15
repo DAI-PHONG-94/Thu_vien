@@ -1,0 +1,51 @@
+﻿@model WebLibary.Models.Entities.Borrowing
+
+<h2>Xác nhận xóa Mượn sách</h2>
+
+<div>
+    <h4>Bạn có chắc chắn muốn xóa Mượn sách này không?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.BorrowingId
+        </dd>
+
+        <dt class="col-sm-2">
+            Sách
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Book.Name
+        </dd>
+
+        <dt class="col-sm-2">
+            Người dùng
+        </dt>
+        <dd class="col-sm-10">
+            @Model.User.UserName
+        </dd>
+
+        <dt class="col-sm-2">
+            Ngày mượn
+        </dt>
+        <dd class="col-sm-10">
+            @Model.BorrowDate.ToString("yyyy-MM-dd")
+        </dd>
+
+        <dt class="col-sm-2">
+            Ngày trả
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ReturnDate.ToString("yyyy-MM-dd")
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.BorrowingId" method="post">
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+        </div>
+    </form>
+    <a asp-action="Index">Quay lại danh sách</a>
+</div>
